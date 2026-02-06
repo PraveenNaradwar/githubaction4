@@ -1,0 +1,28 @@
+
+
+name: API ETL PIPELINE
+
+on: 
+    push: 
+        branches: 
+            - main
+
+
+jobs: 
+    read-from-api: 
+        runs-on: ubuntu-latest
+
+        steps: 
+            - name: checkout code
+              uses: actions/checkout@v2
+
+            - name: setup python version
+              uses: actions/setup-python@v6
+              with: 
+                python-version: "3.10"
+
+            - name: install required dependencies
+              run: pip install -r requirements.txt
+
+            - name: get data from Api
+              run: python read_data_api.py

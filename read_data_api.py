@@ -1,0 +1,12 @@
+
+import pandas as pd
+import requests
+
+url="https://jsonplaceholder.typicode.com/users"
+
+response=requests.get(url)
+if response.status_code==200:
+    data=reponse.json()
+
+df=pd.DataFrame(data)
+print(df)
