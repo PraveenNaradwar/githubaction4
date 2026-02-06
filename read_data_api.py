@@ -1,13 +1,22 @@
 
 import pandas as pd
 import requests
+import os
 
-url="https://jsonplaceholder.typicode.com/users"
+token=os.getenv('api_token')
+print(f"token: {token}")
 
-response=requests.get(url)
-if response.status_code==200:
-    data=response.json()
+if token=='1011':
+    print("correct token")
+else:
+    print("invalid token")
 
-df=pd.DataFrame(data)
-df=df[['id','name']]
-print(df)
+# url="https://jsonplaceholder.typicode.com/users"
+
+# response=requests.get(url)
+# if response.status_code==200:
+#     data=response.json()
+
+# df=pd.DataFrame(data)
+# df=df[['id','name']]
+# print(df)
