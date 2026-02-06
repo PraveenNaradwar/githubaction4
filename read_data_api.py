@@ -9,4 +9,5 @@ if response.status_code==200:
     data=response.json()
 
 df=pd.DataFrame(data)
+df=df[['id','name']]
 print(df)
